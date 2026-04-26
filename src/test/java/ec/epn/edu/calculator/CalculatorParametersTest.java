@@ -1,5 +1,39 @@
 package ec.epn.edu.calculator;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
+@RunWith(value = Parameterized.class)
 public class CalculatorParametersTest {
-    
+    private int a, b, expected;
+
+    @Parameterized.Parameters
+    public static Iterable<Object[]> parameters() {
+        List<Object[]> objects = new ArrayList<Object[]>();
+        objects.add(new Object[]{2,4,6});
+        objects.add(new Object[]{1,8,9});
+        objects.add(new Object[]{2,5,7});
+        objects.add(new Object[]{4,4,8});
+        objects.add(new Object[]{1,3,4});
+        return objects;
+    }
+
+    public CalculatorParametersTest(int a, int b, int expected){
+        this.a=a;
+        this.b=b;
+        this.expected=expected;
+    }
+
+    @Test
+    public void given_two_integers_when_addition_then_summation() {
+        Calculator c = new Calculator();
+        int actual = c.addition(a, b);
+        assertEquals(expected, actual);
+    }
 }
