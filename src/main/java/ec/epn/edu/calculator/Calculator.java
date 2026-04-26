@@ -1,6 +1,17 @@
 package ec.epn.edu.calculator;
 
 public class Calculator {
+
+    private int answer;
+    
+    public int getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(int answer) {
+        this.answer = answer;
+    }
+
     public int add(int a, int b) {
         return a + b;
     }
