@@ -12,11 +12,11 @@ public class Calculator {
         this.answer = answer;
     }
 
-    public int add(int a, int b) {
+    public int addition(int a, int b) {
         return a + b;
     }
 
-    public int subtract(int a, int b) {
+    public int substraction(int a, int b) {
         return a - b;
     }
 
@@ -24,10 +24,16 @@ public class Calculator {
         return a * b;
     }
 
-    public double divide(int a, int b) {
-        if (b == 0) {
-            throw new IllegalArgumentException("Cannot divide by zero");
+    @SuppressWarnings("IntegerDivisionInFloatingPointContext")
+    public double division(int a, int b) {
+        return a / b;
+    }
+
+    public void timeout(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        return (double) a / b;
     }
 }
